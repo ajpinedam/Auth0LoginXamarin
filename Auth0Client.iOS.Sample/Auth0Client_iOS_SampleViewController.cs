@@ -15,9 +15,9 @@ namespace Auth0Client.iOS.Sample
 		//            You can obtain your own at https://auth0.com when creating a Xamarin App in the dashboard
 		// ***********
 		private Auth0.SDK.Auth0Client client = new Auth0.SDK.Auth0Client (
-			"contoso",
-			"HmqDkk9qtDgxsiSKpLKzc51xD75hgiRW",
-			"wbNk_qZi9jqHnj_CKpPasaTAFBaQHma3BnSkU2X00LkBVY_UvuIZ2U3PQG25zqpE");
+			Auth0LoginCredentials.Name,
+			Auth0LoginCredentials.ClientId,
+			Auth0LoginCredentials.ClientSecret);
 
 		private readonly TaskScheduler scheduler = TaskScheduler.FromCurrentSynchronizationContext();
 
