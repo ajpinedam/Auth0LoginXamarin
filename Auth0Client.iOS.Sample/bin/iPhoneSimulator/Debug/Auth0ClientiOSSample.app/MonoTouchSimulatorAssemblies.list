@@ -1,0 +1,10 @@
+mscorlib.dll
+System.dll
+System.Core.dll
+System.Xml.dll
+Auth0Client.iOS.dll
+Newtonsoft.Json.dll
+System.Runtime.Serialization.dll
+Xamarin.Auth.iOS.dll
+MonoTouch.Dialog-1.dll
+System.Json.dll
