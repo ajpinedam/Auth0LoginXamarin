@@ -10,10 +10,6 @@ namespace Auth0Client.iOS.Sample
 {
 	public partial class Auth0Client_iOS_SampleViewController : DialogViewController
 	{
-		// ********** 
-		// IMPORTANT: these are demo credentials, and the settings will be reset periodically 
-		//            You can obtain your own at https://auth0.com when creating a Xamarin App in the dashboard
-		// ***********
 		private Auth0.SDK.Auth0Client client = new Auth0.SDK.Auth0Client (
 			Auth0LoginCredentials.Name,
 			Auth0LoginCredentials.ClientId,
@@ -63,6 +59,16 @@ namespace Auth0Client.iOS.Sample
 						.ContinueWith(
 							task => this.ShowResult (task), 
 							this.scheduler);
+		}
+
+		private void LoginWithConnectionButtonFbClick ()
+		{
+			//using Facebook specific connection:
+			this.client.LoginAsync (this, "facebook")
+				.ContinueWith (
+					t => this.ShowResult (t), 
+					this.scheduler);
+		
 		}
 
 		private void LoginWithUsernamePassword ()

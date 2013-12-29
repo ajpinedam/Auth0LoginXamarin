@@ -28,7 +28,15 @@ namespace Auth0Client.iOS.Sample
 			};
 
 			var loginWithConnectionBtn = new StyledStringElement ("Login with Google", this.LoginWithConnectionButtonClick) {
-				Alignment = UITextAlignment.Center
+				Alignment = UITextAlignment.Center,
+				BackgroundColor = UIColor.Red,
+				TextColor = UIColor.White
+			};
+
+			var loginWithConnectionBtnFb = new StyledStringElement ("Login with Facebook", this.LoginWithConnectionButtonFbClick) {
+				Alignment = UITextAlignment.Center,
+				BackgroundColor = UIColor.Blue,
+				TextColor = UIColor.White
 			};
 
 			var loginBtn = new StyledStringElement ("Login", this.LoginWithUsernamePassword) {
@@ -40,6 +48,7 @@ namespace Auth0Client.iOS.Sample
 			var login1 = new Section ("Login");
 			login1.Add (loginWithWidgetBtn);
 			login1.Add (loginWithConnectionBtn);
+			login1.Add (loginWithConnectionBtnFb);
 
 			var login2 = new Section ("Login with user/password");
 			login2.Add (this.userNameElement = new EntryElement ("User", string.Empty, string.Empty));
