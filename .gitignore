@@ -3,3 +3,9 @@ Auth0Client.iOS.Sample/Private/*
 Auth0Client.iOS.Sample/Private/Auth0LoginCredentials.cs
 
 *.exe
+
+Auth0Client.iOS.Sample/bin/iPhoneSimulator/Debug/Auth0ClientiOSSample.exe
+
+Auth0Client.iOS.Sample/bin/iPhoneSimulator/Debug/Auth0ClientiOSSample.exe.mdb
+
+Auth0Client.iOS.Sample/bin/iPhoneSimulator/Debug/Auth0ClientiOSSample.exe.mdb

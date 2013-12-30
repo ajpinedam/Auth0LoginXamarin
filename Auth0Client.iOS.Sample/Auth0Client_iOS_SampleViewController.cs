@@ -55,7 +55,7 @@ namespace Auth0Client.iOS.Sample
 		private void LoginWithConnectionButtonClick ()
 		{
 			// This uses a specific connection: google-oauth2
-			this.client.LoginAsync (this, "google-oauth2")	// current controller and connection name
+			this.client.LoginAsync (this, Auth0Connection.Google)	// current controller and connection name
 						.ContinueWith(
 							task => this.ShowResult (task), 
 							this.scheduler);
@@ -64,7 +64,7 @@ namespace Auth0Client.iOS.Sample
 		private void LoginWithConnectionButtonFbClick ()
 		{
 			//using Facebook specific connection:
-			this.client.LoginAsync (this, "facebook")
+			this.client.LoginAsync (this, Auth0Connection.Facebook)
 				.ContinueWith (
 					t => this.ShowResult (t), 
 					this.scheduler);
