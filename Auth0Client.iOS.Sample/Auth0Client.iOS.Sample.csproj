@@ -108,6 +108,7 @@
     <Compile Include="LoadingOverlay.cs" />
     <Compile Include="Private\Auth0LoginCredentials.cs" />
     <Compile Include="Auth0Connection.cs" />
+    <Compile Include="MembershipInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

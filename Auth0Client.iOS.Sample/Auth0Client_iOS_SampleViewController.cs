@@ -5,6 +5,7 @@ using Auth0.SDK;
 using MonoTouch.Dialog;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.Linq;
 
 namespace Auth0Client.iOS.Sample
 {
@@ -94,13 +95,22 @@ namespace Auth0Client.iOS.Sample
 
 			if (taskResult.IsCompleted) 
 			{
-				var name = taskResult.Result.Profile ["name"].ToString ();
-				var email = taskResult.Result.Profile ["email"].ToString ();
-				var token = taskResult.Result.Profile ["identities"][0]["access_token"].ToString ();
-				var provider = taskResult.Result.Profile ["identities"][0]["provider"].ToString ();
-				var userId = taskResult.Result.Profile["user_id"].ToString ();
+				var membershipInfo = new MembershipInfo ();
 
-				string _dataToInsert = String.Format("-name: {0} \n-email: {1} \n-user_id: {2} \n-provider: {3} \n-token: {4}", name, email, userId,provider, token).Replace("\n", Environment.NewLine);
+				membershipInfo.Name = (string)taskResult.Result.Profile ["name"];
+				membershipInfo.Email = (string)taskResult.Result.Profile ["email"];
+				membershipInfo.Token = (string)taskResult.Result.Profile ["identities"][0]["access_token"];
+				membershipInfo.Provider = (string)taskResult.Result.Profile ["identities"][0]["provider"];
+				membershipInfo.UserId = (string)taskResult.Result.Profile["user_id"];
+
+				string _dataToInsert = String.Format("-name: {0} \n-email: {1} \n-user_id: {2} \n-provider: {3} \n-token: {4}", 
+					membershipInfo.Name, 
+					membershipInfo.Email, 
+					membershipInfo.UserId, 
+					membershipInfo.Provider, 
+					membershipInfo.Token
+				 ).Replace("\n", Environment.NewLine);
+
 				this.dataElement.Value = _dataToInsert;
 			}
 
