@@ -20,6 +20,7 @@ namespace Auth0Client.iOS.Sample
 		internal EntryElement userNameElement;
 		internal EntryElement passwordElement;
 		internal StyledMultilineElement resultElement;
+		internal StyledMultilineElement dataElement;
 
 		private void Initialize()
 		{
@@ -45,6 +46,8 @@ namespace Auth0Client.iOS.Sample
 
 			this.resultElement = new StyledMultilineElement (string.Empty, string.Empty, UITableViewCellStyle.Subtitle);
 
+			this.dataElement = new StyledMultilineElement (string.Empty, string.Empty, UITableViewCellStyle.Subtitle);
+
 			var login1 = new Section ("Login");
 			login1.Add (loginWithWidgetBtn);
 			login1.Add (loginWithConnectionBtn);
@@ -55,10 +58,13 @@ namespace Auth0Client.iOS.Sample
 			login2.Add (this.passwordElement = new EntryElement ("Password", string.Empty, string.Empty, true));
 			login2.Add (loginBtn);
 
+			var data = new Section ("Accessing Data");
+			data.Add (this.dataElement);
+
 			var result = new Section ("Result");
 			result.Add(this.resultElement);
 
-			this.Root.Add (new Section[] { login1, login2, result });
+			this.Root.Add (new Section[] { login1, login2, data, result });
 		}
 	}
 }

@@ -92,6 +92,18 @@ namespace Auth0Client.iOS.Sample
 				error = new Exception ("Authentication was canceled.");
 			}
 
+			if (taskResult.IsCompleted) 
+			{
+				var name = taskResult.Result.Profile ["name"].ToString ();
+				var email = taskResult.Result.Profile ["email"].ToString ();
+				var token = taskResult.Result.Profile ["identities"][0]["access_token"].ToString ();
+				var provider = taskResult.Result.Profile ["identities"][0]["provider"].ToString ();
+				var userId = taskResult.Result.Profile["user_id"].ToString ();
+
+				string _dataToInsert = String.Format("-name: {0} \n-email: {1} \n-user_id: {2} \n-provider: {3} \n-token: {4}", name, email, userId,provider, token).Replace("\n", Environment.NewLine);
+				this.dataElement.Value = _dataToInsert;
+			}
+
 			this.resultElement.Value = error == null ?
 				taskResult.Result.Profile.ToString () :
 				error.InnerException != null ? error.InnerException.Message : error.Message;
